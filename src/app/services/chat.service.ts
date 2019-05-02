@@ -21,4 +21,9 @@ export class ChatService {
 
     this.websocketService.emit('message', payload);
   }
+
+  receiveMessage() {
+    return this.websocketService.listen('newMessage');
+  }
+
 }
