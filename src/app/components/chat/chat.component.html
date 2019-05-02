@@ -1,5 +1,16 @@
-<h1>Mensajes</h1>
-<hr>
-<form (ngSubmit)="send(form)" #form="ngForm">
-  <input type="text" [(ngModel)]="text" class="form-control" name="text" placeholder="Mensaje..." autofocus autocomplete="off">
-</form>
+<div class="fixed-full-width title-header d-flex align-items-center">
+  <div class="container-fluid">
+    <h1>Mensajes</h1>
+  </div>
+</div>
+<div class="fixed-full-width messages d-flex flex-column  container-fluid" #messageRef>
+  <div class="card p-2 mb-2 bg-primary text-white" *ngFor="let msg of messages; let f = first" [ngClass]="{'mt-2': f}">
+    <p class="font-weight-bold">{{msg.from}}</p>
+    <p>{{msg.body}}</p>
+  </div>
+</div>
+<div class="fixed-full-width container-input-message d-flex">
+  <form (ngSubmit)="send(form)" #form="ngForm" class="mb-4 flex-fill">
+    <input type="text" [(ngModel)]="text" class="form-control" name="text" placeholder="Mensaje..." autofocus autocomplete="off">
+  </form>
+</div>
