@@ -17,6 +17,8 @@ export class ChatService {
       body
     };
 
+    console.log(`Sending message...`, payload);
+
     this.websocketService.emit('message', payload);
   }
 }
