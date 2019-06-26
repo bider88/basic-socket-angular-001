@@ -1,0 +1,18 @@
+.messages-container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 40px);
+
+  .row {
+
+    .col-4, .col-8 {
+      position: absolute;
+      height: 100%;
+    }
+
+    .col-8 {
+      left: 33.333333%;
+    }
+  }
+
+}
