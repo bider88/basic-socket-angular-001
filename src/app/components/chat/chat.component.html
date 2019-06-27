@@ -3,7 +3,7 @@
     <h1>Mensajes</h1>
   </div>
 </div>
-<div class="fixed-full-width messages d-flex flex-column  container-fluid" #messageRef>
+<div class="fixed-full-width messages d-flex flex-column container-fluid" #messageRef>
   <div class="card p-2 mb-2 bg-primary text-white" *ngFor="let msg of messages; let f = first" [ngClass]="{'mt-2': f}">
     <p class="font-weight-bold">{{msg.from}}</p>
     <p>{{msg.body}}</p>

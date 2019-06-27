@@ -1,3 +1,14 @@
-<p>
-  login works!
-</p>
+<div class="fixed-full-width title-header d-flex align-items-center">
+  <div class="container-fluid">
+    <h1>Login</h1>
+  </div>
+</div>
+<div class="fixed-full-width login top d-flex flex-column align-items-center justify-content-center container-fluid">
+  <form (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="nameUser">Username</label>
+      <input type="text" class="form-control" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" autofocus placeholder="Enter username">
+    </div>
+    <button class="btn btn-primary btn-block">Login</button>
+  </form>
+</div>

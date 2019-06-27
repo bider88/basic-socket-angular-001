@@ -40,7 +40,7 @@ export class ChatComponent implements OnInit, OnDestroy {
       (msg: PayloadInterface) =>  {
         this.messages.push(msg);
 
-        setTimeout(() => this.messageRef.nativeElement.scrollTop = this.messageRef.nativeElement.scrollHeight, 0);
+        setTimeout(() => this.messageRef.nativeElement.scrollTop = this.messageRef.nativeElement.scrollHeight);
       }
     );
   }
