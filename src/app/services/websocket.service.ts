@@ -9,7 +9,7 @@ import { UserClass } from '../classes/user.class';
 export class WebsocketService {
 
   socketStatus = false;
-  user: UserClass;
+  private user: UserClass;
 
   constructor(
     private socket: Socket
@@ -55,6 +55,10 @@ export class WebsocketService {
         }
       });
     });
+  }
+
+  getUser() {
+    return this.user;
   }
 
   saveStorage() {

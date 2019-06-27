@@ -16,7 +16,7 @@ export class ListUsersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.user = this.websocketService.user;
+    this.user = this.websocketService.getUser();
   }
 
 }
