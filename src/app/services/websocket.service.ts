@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
+import { BodyResponse } from '../interfaces/body-response.interface';
+import { UserClass } from '../classes/user.class';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +9,13 @@ import { Socket } from 'ngx-socket-io';
 export class WebsocketService {
 
   socketStatus = false;
+  user: UserClass;
 
   constructor(
     private socket: Socket
   ) {
     this.verifyStatus();
+    this.loadStorage();
   }
 
   verifyStatus() {
@@ -37,9 +41,32 @@ export class WebsocketService {
   }
 
   loginWS(name: string) {
-    console.log('user-configuration', name);
-    this.emit('user-configuration', { name }, res => {
-      console.log(res);
+
+    return new Promise((resolve, reject) => {
+      console.log('user-configuration', name);
+      this.emit('user-configuration', { name }, (res: BodyResponse) => {
+        console.log(res);
+        if (res.ok) {
+          this.user = new UserClass(name);
+          this.saveStorage();
+          resolve();
+        } else {
+          reject();
+        }
+      });
     });
+  }
+
+  saveStorage() {
+    if (this.user) {
+      localStorage.setItem('user', JSON.stringify(this.user));
+    }
+  }
+
+  loadStorage() {
+    const user: string = localStorage.getItem('user');
+    if (user) {
+      this.user = JSON.parse(user);
+    }
   }
 }

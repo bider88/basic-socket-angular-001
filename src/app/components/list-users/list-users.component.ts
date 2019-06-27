@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserClass } from 'src/app/classes/user.class';
+import { WebsocketService } from 'src/app/services/websocket.service';
 
 @Component({
   selector: 'app-list-users',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListUsersComponent implements OnInit {
 
-  constructor() { }
+  user: UserClass;
+
+  constructor(
+    private websocketService: WebsocketService
+  ) { }
 
   ngOnInit() {
+    this.user = this.websocketService.user;
   }
 
 }

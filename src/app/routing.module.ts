@@ -6,7 +6,7 @@ import { MessagesComponent } from './pages/messages/messages.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'messages', component: MessagesComponent },
-  { path: '**', component: LoginComponent },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
