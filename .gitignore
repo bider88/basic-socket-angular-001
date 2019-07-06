@@ -44,3 +44,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Tree configuration of Angular
+.angulardoc.json
+package-lock.json

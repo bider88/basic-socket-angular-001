@@ -3,12 +3,24 @@
     <h1>Login</h1>
   </div>
 </div>
-<div class="fixed-full-width login top d-flex flex-column align-items-center justify-content-center container-fluid">
-  <form (ngSubmit)="login()">
-    <div class="form-group">
-      <label for="nameUser">Username</label>
-      <input type="text" class="form-control" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" autofocus placeholder="Enter username">
+<div class="fixed-full-width login top">
+  <div class="jumbotron jumbotron-fluid bg-primary text-white">
+    <div class="container">
+      <h1 class="display-4">Mi chat</h1>
+      <p class="lead">Conoce a nuevas personas y no te quedes con las ganas de decir hola al mundo.</p>
     </div>
-    <button class="btn btn-primary btn-block">Login</button>
-  </form>
+    <div class="mt-5 d-flex justify-content-center">
+      <form class="login-form" (ngSubmit)="login()">
+        <div class="form-group">
+          <label for="nameUser">Username</label>
+          <input type="text" class="form-control" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" autofocus
+            placeholder="Enter username">
+        </div>
+        <button class="btn btn-info btn-block">Login</button>
+      </form>
+    </div>
+  </div>
+  <div class="text-center">
+    <small>All right reserved 2019 ®</small>
+  </div>
 </div>

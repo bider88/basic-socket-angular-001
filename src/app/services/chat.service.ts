@@ -13,7 +13,7 @@ export class ChatService {
 
   sendMessage(body: string) {
     const payload: PayloadInterface = {
-      from: 'Didier',
+      from: this.websocketService.getUser().name,
       body
     };
 
@@ -24,6 +24,10 @@ export class ChatService {
 
   receiveMessage() {
     return this.websocketService.listen('newMessage');
+  }
+
+  receivePrivateMessage() {
+    return this.websocketService.listen('private-message');
   }
 
 }

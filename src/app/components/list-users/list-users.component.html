@@ -1,6 +1,6 @@
-<div class="fixed-full-width title-header d-flex align-items-center">
+<div class="fixed-full-width title-header d-flex align-items-center bg-primary text-white">
   <div class="container-fluid">
-    <h3>User: {{ user?.name }}</h3>
+    <h3>{{ user?.name || 'Loading user...' }}</h3>
   </div>
 </div>
 <div class="fixed-full-width top d-flex flex-column  container-fluid">

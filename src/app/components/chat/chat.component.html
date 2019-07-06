@@ -1,10 +1,10 @@
-<div class="fixed-full-width title-header d-flex align-items-center">
+<div class="fixed-full-width title-header d-flex align-items-center bg-primary text-white">
   <div class="container-fluid">
     <h3>Mensajes</h3>
   </div>
 </div>
 <div class="fixed-full-width messages d-flex flex-column container-fluid" #messageRef>
-  <div class="card p-2 mb-2 bg-primary text-white" *ngFor="let msg of messages; let f = first" [ngClass]="{'mt-2': f}">
+  <div class="card p-2 mb-2 bg-info text-white" *ngFor="let msg of messages; let f = first" [ngClass]="{'mt-2': f}">
     <p class="font-weight-bold">{{msg.from}}</p>
     <p>{{msg.body}}</p>
   </div>
