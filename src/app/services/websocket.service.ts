@@ -21,8 +21,8 @@ export class WebsocketService {
   verifyStatus() {
     this.socket.on('connect', () => {
       console.log('Connected at server');
-
       this.socketStatus = true;
+      this.loadStorage();
     });
 
     this.socket.on('disconnect', () => {
