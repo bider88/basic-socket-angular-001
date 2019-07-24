@@ -47,7 +47,7 @@ export class WebsocketService {
       this.emit('user-configuration', { name }, (res: BodyResponse) => {
         console.log(res);
         if (res.ok) {
-          this.user = new UserClass(name);
+          this.user = res.user;
           this.saveStorage();
           resolve();
         } else {

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { WebsocketService } from './websocket.service';
 import { PayloadInterface } from '../interfaces/payload.interface';
+import { Observable } from 'rxjs';
+import { UserClass } from '../classes/user.class';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +30,10 @@ export class ChatService {
 
   receivePrivateMessage() {
     return this.websocketService.listen('private-message');
+  }
+
+  getUserActives(): Observable<UserClass[]> {
+    return this.websocketService.listen('user-actives') as Observable<UserClass[]>;
   }
 
 }

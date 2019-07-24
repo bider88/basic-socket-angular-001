@@ -3,6 +3,12 @@
     <h3>{{ user?.name || 'Loading user...' }}</h3>
   </div>
 </div>
-<div class="fixed-full-width top d-flex flex-column  container-fluid">
-  working
+<div class="fixed-full-width top d-flex flex-column">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let user of userList | async">
+      {{ user.name }} <span class="badge badge-info">{{ user.room }}</span>
+      <br>
+      <small class="text-muted">{{ user.id }}</small>
+    </li>
+  </ul>
 </div>
