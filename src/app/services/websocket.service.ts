@@ -14,8 +14,8 @@ export class WebsocketService {
   constructor(
     private socket: Socket
   ) {
-    this.verifyStatus();
     this.loadStorage();
+    this.verifyStatus();
   }
 
   verifyStatus() {
@@ -71,6 +71,7 @@ export class WebsocketService {
     const user: string = localStorage.getItem('user');
     if (user) {
       this.user = JSON.parse(user);
+      this.loginWS(this.user.name);
     }
   }
 }
