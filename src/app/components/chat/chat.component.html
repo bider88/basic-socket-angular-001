@@ -1,6 +1,9 @@
 <div class="fixed-full-width title-header d-flex align-items-center bg-primary text-white">
   <div class="container-fluid">
-    <h3>Mensajes</h3>
+    <h3 class="d-inline">Mensajes</h3>
+    <button class="btn btn-outline-light float-right" (click)="logout()">
+      Logout
+    </button>
   </div>
 </div>
 <div class="fixed-full-width messages d-flex flex-column container-fluid" #messageRef>

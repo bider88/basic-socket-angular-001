@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 import { ChatService } from 'src/app/services/chat.service';
 import { Subscription } from 'rxjs';
 import { PayloadInterface } from 'src/app/interfaces/payload.interface';
+import { WebsocketService } from 'src/app/services/websocket.service';
 
 @Component({
   selector: 'app-chat',
@@ -17,7 +18,8 @@ export class ChatComponent implements OnInit, OnDestroy {
   @ViewChild('messageRef') messageRef: ElementRef;
 
   constructor(
-    private chatService: ChatService
+    private chatService: ChatService,
+    private websocketService: WebsocketService
   ) { }
 
   ngOnInit() {
@@ -43,6 +45,10 @@ export class ChatComponent implements OnInit, OnDestroy {
         setTimeout(() => this.messageRef.nativeElement.scrollTop = this.messageRef.nativeElement.scrollHeight);
       }
     );
+  }
+
+  logout() {
+    this.websocketService.logoutWS();
   }
 
 }

@@ -26,6 +26,7 @@ export class ListUsersComponent implements OnInit {
 
   listenUserActives() {
     this.userList = this.chatService.getUserActives();
+    this.chatService.getUserList();
   }
 
 }

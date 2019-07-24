@@ -36,4 +36,8 @@ export class ChatService {
     return this.websocketService.listen('user-actives') as Observable<UserClass[]>;
   }
 
+  getUserList() {
+    this.websocketService.emit('user-list');
+  }
+
 }

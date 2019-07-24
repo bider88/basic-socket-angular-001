@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { BodyResponse } from '../interfaces/body-response.interface';
 import { UserClass } from '../classes/user.class';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class WebsocketService {
   private user: UserClass;
 
   constructor(
-    private socket: Socket
+    private socket: Socket,
+    private router: Router
   ) {
     this.loadStorage();
     this.verifyStatus();
@@ -55,6 +57,13 @@ export class WebsocketService {
         }
       });
     });
+  }
+
+  logoutWS() {
+    this.user = null;
+    localStorage.removeItem('user');
+    this.emit('user-configuration', {name : 'no name'}, () => {});
+    this.router.navigateByUrl('');
   }
 
   getUser() {
